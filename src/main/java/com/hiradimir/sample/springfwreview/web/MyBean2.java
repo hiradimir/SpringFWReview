@@ -16,15 +16,15 @@ import java.util.List;
 public class MyBean2 {
     
     @Autowired
-    private MyBean myBean;
+    private IMyBean myBean;
     
     private Date date = Calendar.getInstance().getTime();
 
-    public MyBean getMyBean() {
+    public IMyBean getMyBean() {
         return myBean;
     }
 
-    public void setMyBean(MyBean myBean) {
+    public void setMyBean(IMyBean myBean) {
         this.myBean = myBean;
     }
 

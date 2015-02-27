@@ -10,17 +10,21 @@ import java.util.List;
  * Created by yutaka on 2015/02/27.
  */
 @Component
-public class MyBean {
+public class MyBean implements IMyBean {
+    @Override
     public List<String> getMessages() {
         return messages;
     }
+    @Override
     public String getMessages(int n) {
         return this.messages.get(n);
     }
 
+    @Override
     public void setMessage(int n, String message){
         this.messages.add(n, message);
     }
+    @Override
     public void addMessage(String message){
         this.messages.add(message);
     }
@@ -29,6 +33,7 @@ public class MyBean {
         messages.add("This is Bean Sample! @ constructor");
     }
 
+    @Override
     public void setMessages(List<String> messages) {
         this.messages = messages;
     }
