@@ -1,7 +1,9 @@
 package com.hiradimir.sample.springfwreview.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,23 +18,27 @@ public class MySampleServlet extends HttpServlet {
     
     ApplicationContext app;
 
+//    @Autowired
+//    MyBean myBean;
+
     @Override
     public void init() throws ServletException {
         super.init();
         app = new ClassPathXmlApplicationContext("/spring/application-config.xml");
+//        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String message = request.getParameter("message");
-        MyBean myBean = (MyBean)app.getBean("mybean1");
+        MyBean myBean = app.getBean(MyBean.class);
         myBean.addMessage(message);
         response.sendRedirect("sample");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MyBean myBean = (MyBean)app.getBean("mybean1");
+        MyBean myBean = app.getBean(MyBean.class);
         request.setAttribute("mybean", myBean);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
