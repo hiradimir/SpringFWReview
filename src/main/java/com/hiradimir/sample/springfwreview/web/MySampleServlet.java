@@ -16,29 +16,24 @@ import java.io.IOException;
  */
 public class MySampleServlet extends HttpServlet {
     
-    ApplicationContext app;
-
-//    @Autowired
-//    MyBean myBean;
+    @Autowired
+    MyBean myBean;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        app = new ClassPathXmlApplicationContext("/spring/application-config.xml");
-//        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
+        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String message = request.getParameter("message");
-        MyBean myBean = app.getBean(MyBean.class);
         myBean.addMessage(message);
         response.sendRedirect("sample");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MyBean myBean = app.getBean(MyBean.class);
         request.setAttribute("mybean", myBean);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
