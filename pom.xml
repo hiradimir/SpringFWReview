@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.yutavsky.sample</groupId>
   <artifactId>springfwreview</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>0.1.0.BUILD-SNAPSHOT</version>
   <name>springfwreview</name>
   <properties>
@@ -67,11 +67,30 @@
 
   <dependencies>
     <!-- General dependencies for standard applications -->
+    
+    <!-- WEBMVC Spring Dependencies -->
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
+      <artifactId>spring-webmvc</artifactId>
       <version>4.1.4.RELEASE</version>
     </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    
 
     <dependency>
       <groupId>log4j</groupId>

@@ -1,7 +1,7 @@
-package com.yutavsky.sample.springfwreview;
+package com.hiradimir.sample.springfwreview;
 
-import com.yutavsky.sample.springfwreview.pojo.Pojo;
-import com.yutavsky.sample.springfwreview.pojo.SimplePojo;
+import com.hiradimir.sample.springfwreview.pojo.Pojo;
+import com.hiradimir.sample.springfwreview.pojo.SimplePojo;
 import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.ThrowsAdvice;

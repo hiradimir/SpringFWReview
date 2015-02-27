@@ -1,4 +1,4 @@
-package com.yutavsky.sample.springfwreview.bean;
+package com.hiradimir.sample.springfwreview.bean;
 
 /**
  * Created by yutaka on 2015/01/30.

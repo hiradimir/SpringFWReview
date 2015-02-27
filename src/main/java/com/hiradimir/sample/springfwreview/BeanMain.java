@@ -1,7 +1,7 @@
-package com.yutavsky.sample.springfwreview;
+package com.hiradimir.sample.springfwreview;
 
-import com.yutavsky.sample.springfwreview.bean.Child;
-import com.yutavsky.sample.springfwreview.bean.Parent;
+import com.hiradimir.sample.springfwreview.bean.Child;
+import com.hiradimir.sample.springfwreview.bean.Parent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

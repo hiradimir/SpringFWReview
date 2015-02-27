@@ -1,4 +1,4 @@
-package com.yutavsky.sample.springfwreview.pojo;
+package com.hiradimir.sample.springfwreview.pojo;
 
 import org.springframework.aop.framework.AopContext;
 

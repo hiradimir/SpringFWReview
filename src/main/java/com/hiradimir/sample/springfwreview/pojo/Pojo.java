@@ -1,4 +1,4 @@
-package com.yutavsky.sample.springfwreview.pojo;
+package com.hiradimir.sample.springfwreview.pojo;
 
 /**
  * Created by yutaka on 2015/01/31.
