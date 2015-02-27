@@ -18,7 +18,7 @@ import java.io.IOException;
 public class MySampleServlet extends HttpServlet {
     
     @Autowired
-    MyBean myBean;
+    MyBean2 myBean2;
 
     @Override
     public void init() throws ServletException {
@@ -29,13 +29,13 @@ public class MySampleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String message = request.getParameter("message");
-        myBean.addMessage(message);
+        myBean2.getMyBean().addMessage(message);
         response.sendRedirect("sample");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("mybean", myBean);
+        request.setAttribute("mybean", myBean2);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
     
