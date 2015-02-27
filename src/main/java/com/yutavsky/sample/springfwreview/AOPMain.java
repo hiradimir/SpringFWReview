@@ -44,14 +44,15 @@ public class AOPMain {
         factory.addInterface(Pojo.class);
         factory.addAdvice(new HijackBeforeMethod());
         factory.addAdvice(new HijackAfterMethod());
-        factory.addAdvice(new HijackThrowException());
+        factory.setExposeProxy(true);
+//        factory.addAdvice(new HijackThrowException());
         
         
         Pojo pojo = (Pojo)factory.getProxy();
 
         pojo.foo();
         pojo.bar();
-        pojo.poo();
+//        pojo.poo();
         pojo.bar();
     }
 }
