@@ -114,7 +114,7 @@ public class App {
         Message newMessageForHash = new Message();
         newMessageForHash.setText("ふが");
         newMessageForHash.setUser(newUser);
-//        crud.create(newMessageForHash);
+        crud.create(newMessageForHash);
         
         MessageHash messageHash = new MessageHash();
         messageHash.setHash(newHash);
