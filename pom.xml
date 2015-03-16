@@ -31,6 +31,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
+          <compilerVersion>${project.build.version}</compilerVersion>
           <source>${project.build.version}</source>
           <target>${project.build.version}</target>
           <encoding>${project.build.sourceEncoding}</encoding>
@@ -91,6 +92,15 @@
       <version>1.2</version>
     </dependency>
 
+
+
+    <!-- LOMBOK -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.14.8</version>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- AOP -->
     <dependency>
@@ -155,4 +165,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
 </project>
