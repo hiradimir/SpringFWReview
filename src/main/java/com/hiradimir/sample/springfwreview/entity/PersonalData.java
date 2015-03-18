@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PersonalData")
+//@Table(name = "PersonalData")
 @Data
 public class PersonalData {
 

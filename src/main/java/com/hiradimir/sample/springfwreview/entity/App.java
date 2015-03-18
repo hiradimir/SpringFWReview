@@ -151,8 +151,9 @@ public class App {
 
 
 
+        manager.flush();
         entityTransaction.commit();
-        
+        manager.close();
         
         
         

@@ -4,13 +4,11 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
   
   <context:property-placeholder location="classpath:jdbc.properties"/>
@@ -18,7 +16,15 @@
   <bean id="entityManagerFactory"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
     <property name="dataSource" ref="dataSource"/>
-    <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter">
+    <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
+    <property name="packagesToScan" value="com.hiradimir.sample.springfwreview.entity"/>
+    <property name="jpaProperties">
+      <props>
+        <prop key="hibernate.hdm2ddl.auto">create</prop>
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.format_sql">true</prop>
+        <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+      </props>
     </property>
   </bean>
 
@@ -35,12 +41,14 @@
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="org.h2.Driver" />
     <!--<property name="url" value="jdbc:h2:mem:hoge;" />-->
-    <property name="url" value="jdbc:h2:./target/h2db;DB_CLOSE_DELAY=-1" />
+    <property name="url" value="jdbc:h2:./target/h2db;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1" />
+    <property name="username" value="sa" />
+    <property name="password" value="" />
   </bean>
 
-  <!--<jdbc:initialize-database data-source="dataSource" >-->
-    <!--<jdbc:script location="${jdbc.scriptLocation}"/>-->
-  <!--</jdbc:initialize-database>-->
+  <jdbc:initialize-database data-source="dataSource" >
+    <jdbc:script location="${jdbc.scriptLocation}"/>
+  </jdbc:initialize-database>
 
   <!--<jdbc:embedded-database id="dataSource" type="H2">-->
     <!--<jdbc:script location="${jdbc.scriptLocation}" />-->
