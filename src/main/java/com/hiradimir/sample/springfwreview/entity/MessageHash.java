@@ -3,11 +3,14 @@ package com.hiradimir.sample.springfwreview.entity;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -24,16 +27,11 @@ import java.util.List;
 @ToString(callSuper = true)
 public class MessageHash extends BaseEntity{
 
-
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @ManyToOne
+    
+    @OneToOne
     private Hash hash;
 
-    @ManyToOne
+    @OneToOne
     private Message message;
 
 }

@@ -14,12 +14,6 @@ import javax.persistence.Id;
 @ToString(callSuper = true)
 public class User extends BaseEntity{
 
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-
     @Column
     private String userName;
 

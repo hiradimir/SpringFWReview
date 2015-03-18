@@ -109,7 +109,7 @@ public class App {
 
 //        だめ
         
-//        manager.flush();
+        manager.flush();
 
         Message newMessageForHash = new Message();
         newMessageForHash.setText("ふが");
@@ -121,6 +121,7 @@ public class App {
         messageHash.setMessage(newMessageForHash);
         
         crud.create(messageHash);
+        manager.clear();
         
         log("messageHash", messageHash);
 
@@ -131,8 +132,9 @@ public class App {
         
         
         
-//        log("hashs", crud.getAllEntlies(Hash.class));
-//        log("messages", crud.getAllEntlies(Message.class));
+//            log("hashs", crud.getAllEntlies(Hash.class));
+//            log("messages", crud.getAllEntlies(Message.class));
+//            log("messageHash", crud.getAllEntlies(MessageHash.class));
         
         
 //        MessageHashMap messageHashMap = new MessageHashMap();

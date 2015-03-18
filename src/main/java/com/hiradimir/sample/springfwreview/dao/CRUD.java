@@ -4,6 +4,7 @@ import lombok.Setter;
 import org.springframework.context.ApplicationContext;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -16,7 +17,9 @@ public class CRUD {
 
     public <T> List<T> getAllEntlies(Class<T> clazz){
         final String className = clazz.getSimpleName();
-        return manager.createQuery(String.format("Select %s from %s", className, className), clazz).getResultList();
+        TypedQuery<T> tTypedQuery = manager.createQuery(String.format("from %s", className), clazz);
+        
+        return tTypedQuery.getResultList();
     }
     
     public <T> void create(T t){
